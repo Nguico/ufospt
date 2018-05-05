@@ -1,0 +1,9 @@
+<%= image_tag @spot.image.url(:medium) %>
+<%= simple_form_for @spot do |f| %>
+  <%= f.input :title %>
+  <%= f.input :date %>
+  <%= f.input :image %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to "Cancel", spots_path %>
+<%= link_to "Delete", spot_path(@spot), method: :delete, data: { confirm: "Are you sure you want to delete this post?" } %>

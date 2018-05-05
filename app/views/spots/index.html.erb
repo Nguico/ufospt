@@ -3,3 +3,7 @@
         <h2><%= spot.date %></h2>
         <%= link_to (image_tag spot.image.url(:medium)), spot_path(spot) %>
 <% end %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% if user_signed_in? %>
+<%= current_user.user_name %>
+<% end %>
