@@ -12,7 +12,7 @@
           <% end %>
 
           <% if user_signed_in? %>
-            <h1>Welcome, Nicolas</h1>
+            <h1>Welcome, <%= current_user.user_name %></h1>
             <span class="lines">
             <%= link_to 'Log Out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %>
             </span>
@@ -36,14 +36,28 @@
 
 <div class="new">
 
-   <%= simple_form_for @spot do |f| %>
-   <%= f.input :title, :class => 'input' %><br><br>
-   <%= f.input :date %><br><br>
-   <%= f.submit "Update", :class => 'button-new' %>
-   <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure you want to delete this spot?" } do %>
-   <i class="fas fa-trash-alt" style="margin-left:20px;font-size:20px;"></i>
-   <% end %>
-   <% end %>
+        <% if current_user.admin? %>
+           <%= simple_form_for @spot do |f| %>
+           <%= f.input :title, :class => 'input' %><br><br>
+           <%= f.input :date %><br><br>
+           <%= f.submit "Update", :class => 'button-new' %>
+           <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure you want to delete this spot?" } do %>
+           <i class="fas fa-trash-alt" style="margin-left:20px;font-size:20px;"></i>
+           <% end %>
+           <% end %>
+        <% end %>
+
+        <% if user_signed_in? %>
+        <% if @spot.user.id == current_user.id %>
+           <%= simple_form_for @spot do |f| %>
+           <%= f.input :title, :class => 'input' %><br><br>
+           <%= f.input :date %><br><br>
+           <%= f.submit "Update", :class => 'button-new' %>
+           <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure you want to delete this spot?" } do %>
+           <i class="fas fa-trash-alt" style="margin-left:20px;font-size:20px;"></i>
+           <% end %>
+           <% end %>
+        <% end %>
+        <% end %>
 
 </div>
-

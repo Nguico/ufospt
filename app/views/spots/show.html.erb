@@ -12,7 +12,7 @@
           <% end %>
 
           <% if user_signed_in? %>
-            <h1>Welcome, Nicolas</h1>
+            <h1>Welcome, <%= current_user.user_name %></h1>
             <span class="lines">
             <%= link_to 'Log Out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %>
             </span>
@@ -42,7 +42,11 @@
         <% if @spot.user.id == current_user.id %>
             <%= link_to "Edit", edit_spot_path(@spot), :class => 'button-new edit' %>
         <% end %>
-        <% end %>
+      <% end %>
+
+      <% if current_user.admin? %>
+        <%= link_to "Edit", edit_spot_path(@spot), :class => 'button-new edit' %>
+      <% end %>
 
     <div class="photo" style="background-image:url(<%= @spot.image.url %>);background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
     <div class="location" style="background:white;float:right;"></div>
