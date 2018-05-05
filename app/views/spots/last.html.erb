@@ -34,17 +34,16 @@
 
 </div>
 
+<% @spots.each do |spot| %>
+
   <div class="spot">
-    <h1><%= @spot.title %> <span class="author">Spotted by <i class="fas fa-user"></i> <%= @spot.user.user_name %></span></h1>
-    <p class="date"><%= @spot.date %><p>
-
-      <% if user_signed_in? %>
-        <% if @spot.user.id == current_user.id %>
-            <%= link_to "Edit", edit_spot_path(@spot), :class => 'button-new edit' %>
-        <% end %>
-        <% end %>
-
-    <div class="photo" style="background-image:url(<%= @spot.image.url %>);background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
+    <h1><%= link_to spot_path(spot) do %><%= spot.title %><% end %> <span class="author">Spotted by <i class="fas fa-user"></i> <%= spot.user.user_name %></span></h1>
+    <p class="date"><%= spot.date %><p>
+    <div class="photo" style="background-image:url(<%= spot.image.url %>);background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
     <div class="location" style="background:white;float:right;"></div>
-
   </div>
+<% end %>
+
+
+
+

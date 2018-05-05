@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Ufospt</title>
-    <%= csrf_meta_tags %>
+<html lang="en">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UFO Spotted! - MMI Bordeaux</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <%= stylesheet_link_tag    "application", :media => "all" %><link href="/assets/stylesheets/application.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+
     <%= yield %>
+
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/jquery.placeholder.js"></script>
+    <script src="/js/custom.js"></script>
+
   </body>
 </html>

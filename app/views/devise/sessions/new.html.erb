@@ -1,15 +1,41 @@
-<h2>Log in</h2>
+<div class="wrapper">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+        <div class="ufo-text">
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+        <%= link_to root_path do %>
+          <img src="/images/logo.png" style="width:250px;" class="logo" alt="">
+        <% end %>
 
-<%= render "devise/shared/links" %>
+            <h1>made in Bordeaux with</h1>
+            <span class="lines">RUBY ON RAILS</span>
+
+          <div class="menu">
+            <nav>
+              <ul>
+                <li><%= link_to root_path do %><i class="fas fa-home"></i> Home<% end %></li>
+                <li><%= link_to last_path do %><i class="far fa-clock"></i> Last<% end %></li>
+                <li><a href="map.html"><i class="fas fa-map-marker-alt"></i> Map</a></li>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+
+          <img src="/images/ufo.png" class="ufo2" alt="">
+
+</div>
+
+<div class="login">
+
+   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <h1>Log In</h1>
+
+          <%= f.input :email, required: false, autofocus: true %><br><br>
+          <%= f.input :password, required: false %><br><br>
+
+     <%= f.submit "Let's go!", :class => 'button-new' %><%= link_to "or Sign Up", new_user_registration_path, :class => 'sign-up' %>
+
+   <% end %>
+
+</div>

@@ -1,18 +1,44 @@
-<h2>Sign up</h2>
+<div class="wrapper">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+        <div class="ufo-text">
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :user_name, required: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-  </div>
+        <%= link_to root_path do %>
+          <img src="/images/logo.png" style="width:250px;" class="logo" alt="">
+        <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+            <h1>made in Bordeaux with</h1>
+            <span class="lines">RUBY ON RAILS</span>
 
-<%= render "devise/shared/links" %>
+          <div class="menu">
+            <nav>
+              <ul>
+                <li><%= link_to root_path do %><i class="fas fa-home"></i> Home<% end %></li>
+                <li><%= link_to last_path do %><i class="far fa-clock"></i> Last<% end %></li>
+                <li><a href="map.html"><i class="fas fa-map-marker-alt"></i> Map</a></li>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+
+          <img src="/images/ufo.png" class="ufo2" alt="">
+
+</div>
+
+<div class="login">
+
+   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+   <%= f.error_notification %>
+
+      <h1>Sign Up</h1>
+
+<%= f.input :email, required: true, autofocus: true %><br><br>
+<%= f.input :user_name, required: true %><br><br>
+<%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)%><br><br>
+<%= f.input :password_confirmation, required: true %><br><br>
+
+     <%= f.submit "Sign me Up!", :class => 'button-new large' %>
+
+   <% end %>
+
+</div>

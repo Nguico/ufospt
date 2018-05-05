@@ -1,9 +1,49 @@
-<%= image_tag @spot.image.url(:medium) %>
-<%= simple_form_for @spot do |f| %>
-  <%= f.input :title %>
-  <%= f.input :date %>
-  <%= f.input :image %>
-  <%= f.button :submit %>
-<% end %>
-<%= link_to "Cancel", spots_path %>
-<%= link_to "Delete", spot_path(@spot), method: :delete, data: { confirm: "Are you sure you want to delete this post?" } %>
+<div class="wrapper">
+
+        <div class="ufo-text">
+
+          <%= link_to root_path do %>
+            <img src="/images/logo.png" style="width:250px;" class="logo" alt="">
+          <% end %>
+
+          <% unless user_signed_in? %>
+            <h1>made in Bordeaux with</h1>
+            <span class="lines">RUBY ON RAILS</span>
+          <% end %>
+
+          <% if user_signed_in? %>
+            <h1>Welcome, Nicolas</h1>
+            <span class="lines">
+            <%= link_to 'Log Out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %>
+            </span>
+          <% end %>
+
+          <div class="menu">
+            <nav>
+              <ul>
+                <li><%= link_to root_path do %><i class="fas fa-home"></i> Home<% end %></li>
+                <li><%= link_to last_path do %><i class="far fa-clock"></i> Last<% end %></li>
+                <li><a href="map.html"><i class="fas fa-map-marker-alt"></i> Map</a></li>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+
+        <img src="/images/ufo.png" class="ufo2" alt="">
+
+</div>
+
+<div class="new">
+
+   <%= simple_form_for @spot do |f| %>
+   <%= f.input :title, :class => 'input' %><br><br>
+   <%= f.input :date %><br><br>
+   <%= f.submit "Update", :class => 'button-new' %>
+   <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure you want to delete this spot?" } do %>
+   <i class="fas fa-trash-alt" style="margin-left:20px;font-size:20px;"></i>
+   <% end %>
+   <% end %>
+
+</div>
+

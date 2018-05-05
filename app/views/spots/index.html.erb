@@ -1,9 +1,41 @@
-<% @spots.each do |spot| %>
-        <h1><%= spot.title %></h1>
-        <h2><%= spot.date %></h2>
-        <%= link_to (image_tag spot.image.url(:medium)), spot_path(spot) %>
-<% end %>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% if user_signed_in? %>
-<%= current_user.user_name %>
-<% end %>
+<div class="bordeaux">
+      <div class="wrapper">
+        <div class="ufo-text">
+
+          <%= link_to root_path do %>
+          <img src="/images/logo.png" style="width:250px;" class="logo" alt="">
+          <% end %>
+
+          <% unless user_signed_in? %>
+            <h1>made in Bordeaux with</h1>
+            <span class="lines">RUBY ON RAILS</span>
+          <% end %>
+
+          <% if user_signed_in? %>
+            <h1>Welcome, <%= current_user.user_name %></h1>
+            <span class="lines">
+            <%= link_to 'Log Out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %>
+            </span>
+          <% end %>
+
+          <div class="menu">
+            <nav>
+              <ul>
+                <li><%= link_to root_path do %><i class="fas fa-home"></i> Home<% end %></li>
+                <li><%= link_to last_path do %><i class="far fa-clock"></i> Last<% end %></li>
+                <li><a href="map.html"><i class="fas fa-map-marker-alt"></i> Map</a></li>
+              </ul>
+            </nav>
+          </div>
+
+            <%= link_to new_spot_path do %>
+            <button type="submit" class="button-new"><i class="fas fa-crosshairs"></i> Spot new UFO</button>
+            <% end %>
+
+        </div>
+
+            <img src="/images/light.png" class="light" alt="">
+            <img src="/images/ufo.png" class="ufo" alt="">
+
+      </div>
+</div>
