@@ -374,7 +374,7 @@ a {
 .login {
     border: 5px solid #0B0B0B;
     outline: 10px solid #ffffff;
-    width: 400px!important;
+    width: 400px;
     color: #000;
     background: #FFF;
     padding: 20px;
@@ -652,7 +652,7 @@ color: white;
   }
 
   .login {
-    width:100%;
+    width:none;
   }
 
   .new {
