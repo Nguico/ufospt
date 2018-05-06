@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180505230517) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "spots", force: :cascade do |t|
     t.string "title"
     t.date "date"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180505230517) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.float "latitude"
     t.float "longitude"
     t.string "adress"
@@ -48,4 +51,5 @@ ActiveRecord::Schema.define(version: 20180505230517) do
     t.index ["user_name"], name: "index_users_on_user_name", unique: true
   end
 
+  add_foreign_key "spots", "users"
 end
