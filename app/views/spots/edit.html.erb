@@ -36,18 +36,6 @@
 
 <div class="new">
 
-        <% if current_user.admin? %>
-           <%= simple_form_for @spot do |f| %>
-           <%= f.input :title, :placeholder => 'ex : UFO in my garden OMG !', :class => 'input' %><br><br>
-           <%= f.input :date %><br><br>
-           <%= f.input :adress, :placeholder => 'ex : Place de la bourse bordeaux france' %><br><br>
-           <%= f.submit "Update", :class => 'button-new' %>
-           <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure you want to delete this spot?" } do %>
-           <i class="fas fa-trash-alt" style="margin-left:20px;font-size:20px;"></i>
-           <% end %>
-           <% end %>
-        <% end %>
-
         <% if user_signed_in? %>
         <% if @spot.user.id == current_user.id %>
            <%= simple_form_for @spot do |f| %>
