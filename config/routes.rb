@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :spots
   root 'spots#index'
   get 'last', :to => 'spots#last'
+  get 'map', :to => 'spots#map'
 end

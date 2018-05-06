@@ -23,7 +23,7 @@
               <ul>
                 <li><%= link_to root_path do %><i class="fas fa-home"></i> Home<% end %></li>
                 <li><%= link_to last_path do %><i class="far fa-clock"></i> Last<% end %></li>
-                <li><a href="map.html"><i class="fas fa-map-marker-alt"></i> Map</a></li>
+                <li><%= link_to map_path do %><i class="fas fa-map-marker-alt"></i> Map<% end %></li>
               </ul>
             </nav>
           </div>
@@ -40,10 +40,8 @@
     <h1><%= link_to spot_path(spot) do %><%= spot.title %><% end %> <span class="author">Spotted by <i class="fas fa-user"></i> <%= spot.user.user_name %></span></h1>
     <p class="date"><%= spot.date %><p>
     <div class="photo" style="background-image:url(<%= spot.image.url %>);background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
-    <div class="location" style="background:white;float:right;"></div>
+    <%= link_to map_path do %>
+    <div class="location" style="background-image:url(https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBgn6ogRGTCN2TovzkXwUe5ovwencVQr1c&center=<%= spot.latitude %>,<%= spot.longitude %>&zoom=12&format=png&maptype=roadmap&style=element:geometry%7Ccolor:0x242f3e&style=element:labels.text.fill%7Ccolor:0x746855&style=element:labels.text.stroke%7Ccolor:0x242f3e&style=feature:administrative.locality%7Celement:labels.text.fill%7Ccolor:0xd59563&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0xd59563&style=feature:poi.park%7Celement:geometry%7Ccolor:0x263c3f&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x6b9a76&style=feature:road%7Celement:geometry%7Ccolor:0x38414e&style=feature:road%7Celement:geometry.stroke%7Ccolor:0x212a37&style=feature:road%7Celement:labels.text.fill%7Ccolor:0x9ca5b3&style=feature:road.highway%7Celement:geometry%7Ccolor:0x746855&style=feature:road.highway%7Celement:geometry.stroke%7Ccolor:0x1f2835&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0xf3d19c&style=feature:transit%7Celement:geometry%7Ccolor:0x2f3948&style=feature:transit.station%7Celement:labels.text.fill%7Ccolor:0xd59563&style=feature:water%7Celement:geometry%7Ccolor:0x17263c&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x515c6d&style=feature:water%7Celement:labels.text.stroke%7Ccolor:0x17263c&size=510x500&markers=color:red%7Clabel:C%7C<%= spot.latitude %>,<%= spot.longitude %>);background-repeat:no-repeat;background-size:cover;background-position:center;float:right"></div>
+    <% end %>
   </div>
 <% end %>
-
-
-
-

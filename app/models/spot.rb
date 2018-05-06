@@ -4,4 +4,7 @@ class Spot < ActiveRecord::Base
   has_attached_file :image, styles: { :medium => "640x" }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   belongs_to :user
+  geocoded_by :adress
+  after_validation :geocode
+   validates :adress, presence: true
 end

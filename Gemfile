@@ -16,6 +16,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'paperclip', '~> 6.0.0'
 gem 'simple_form'
 gem 'devise'
+gem 'geocoder'
+gem 'gmaps4rails'
 
 group :development, :test do
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

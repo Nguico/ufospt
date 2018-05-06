@@ -2,10 +2,19 @@ class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [ :new, :edit, :destroy, :create]
   def last
-    @spots = Spot.all
+  @spots = Spot.all
   end
+
   def new
     @spot = current_user.spots.build
+  end
+  def map
+  @spots = Spot.all
+  @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
+  marker.lat spot.latitude
+  marker.lng spot.longitude
+  marker.infowindow spot.title
+  end
   end
   def show
   @spot = Spot.find(params[:id])
@@ -33,7 +42,7 @@ class SpotsController < ApplicationController
   end
   private
   def spot_params
-  params.require(:spot).permit(:title, :date, :image)
+  params.require(:spot).permit(:title, :date, :image, :adress, :latitude, :longitude)
   end
   def set_spot
     @spot = Spot.find(params[:id])
