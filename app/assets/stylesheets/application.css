@@ -652,7 +652,11 @@ color: white;
   }
 
   .login {
-    width:none;
+    width:300px;
+  }
+
+  .login .button-new {
+    width:54%;
   }
 
   .new {
