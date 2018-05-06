@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'aws-sdk', '~> 2.3'
 
 group :development, :test do
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
