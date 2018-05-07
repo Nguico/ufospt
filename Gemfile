@@ -18,13 +18,13 @@ gem 'simple_form'
 gem 'devise'
 gem 'geocoder'
 gem 'gmaps4rails'
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk-s3'
 
 group :development, :test do
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 gem 'capybara', '~> 2.13'
 gem 'selenium-webdriver'
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk-s3'
 end
 
 group :development do
