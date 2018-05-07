@@ -39,7 +39,7 @@
   <%= f.input :title, :placeholder => 'ex : UFO in my garden OMG !' %><br><br>
   <%= f.input :date %><br><br>
   <%= f.input :adress, :placeholder => 'ex : Place de la bourse bordeaux france' %><br><br>
-  <%= f.input :image %><br><br>
+  <%= f.input :image, as: :file %><br><br>
   <%= f.submit "Spot!", :class => 'button-new' %>
 <% end %>
       </div>
