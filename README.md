@@ -1,24 +1,28 @@
-# README
+## :alien: UFO SPOTTED!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails app allowing to list the appearances of UFO.
 
-Things you may want to cover:
+### Demo
 
-* Ruby version
+* [UFO SPOTTED!](http://ufospt.herokuapp.com/) - Deployed to Herokuapp
 
-* System dependencies
 
-* Configuration
+### APIs used
 
-* Database creation
+* Google Maps : JavaScript, Static, Places
+* Amazonaws : S3
 
-* Database initialization
+### Adding admin attribute
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+rails c
+```
+```
+myAccount = User.where(email: "myemail@address.com").first
+```
+```
+myAccount.admin = true
+```
+```
+myAccount.save!
+```
