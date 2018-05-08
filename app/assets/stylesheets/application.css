@@ -670,6 +670,10 @@ color: white;
     width: 94%;
   }
 
+  .new input::placeholder{
+  color:#666;
+  }
+
   .map {
     width: 85%;
     padding: 10px;

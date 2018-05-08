@@ -39,7 +39,12 @@
     <p class="date"><%= @spot.date %><p>
 
       <% if user_signed_in? %>
-        <% if @spot.user.id == current_user.id %>
+        <% unless current_user.admin? %>
+            <% if @spot.user.id == current_user.id %>
+                <%= link_to "Edit", edit_spot_path(@spot), :class => 'button-new edit' %>
+            <% end %>
+        <% end %>
+        <% if current_user.admin? %>
             <%= link_to "Edit", edit_spot_path(@spot), :class => 'button-new edit' %>
         <% end %>
       <% end %>
