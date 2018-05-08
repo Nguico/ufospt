@@ -10,7 +10,7 @@ Rails app allowing to list the appearances of UFO.
 ### APIs used
 
 * Google Maps : JavaScript, Static, Places
-* Amazonaws : S3
+* Amazon AWS : S3, IAM
 
 ### Adding admin attribute
 
